@@ -1,8 +1,9 @@
-import {createContext, useState} from 'react'
+import {createContext} from 'react'
 import {atom, useSetRecoilState, useRecoilValue} from 'recoil'
-import {Element, Rectangle} from './components/Rectangle/Rectangle'
+import {Element, Rectangle, selectedElementState} from './components/Rectangle/Rectangle'
 import {PageContainer} from './PageContainer'
 import {Toolbar} from './Toolbar'
+import {EditProperties} from './EditProperties'
 
 type ElementsContextType = {
   elements: Element[]
@@ -25,11 +26,6 @@ export const ElementsContext = createContext<ElementsContextType>({
   selectedElement: null,
   setSelectedElement: () => {},
 }) */
-
-export const selectedElementState = atom<number | null>({
-  key: 'seletedElement',
-  default: null,
-})
 
 export type SetElement = (indexToSet: number, newElement: Element) => void
 
@@ -76,6 +72,7 @@ function Canvas() {
       }}
     >
       <Toolbar />
+      <EditProperties />
       {elements.map((id) => (
         <Rectangle key={id} id={id} />
       ))}
