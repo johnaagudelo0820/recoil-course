@@ -7,6 +7,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {RecoilRoot} from 'recoil'
 
 import {Selectors} from './examples/Selectors'
+import {Atoms} from './examples/Atoms'
+import {Async} from './examples/Async'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,11 +16,14 @@ ReactDOM.render(
       <ChakraProvider>
         <Router>
           <Switch>
-            {/* <Route path="/example/atoms">
+            <Route path="/example/atoms">
               <Atoms />
-            </Route> */}
+            </Route>
             <Route path="/example/selectors">
               <Selectors />
+            </Route>
+            <Route path="/example/async">
+              <Async />
             </Route>
             <Route>
               <Canvas />
